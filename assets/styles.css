@@ -1,0 +1,287 @@
+/* Reset padrão */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Variáveis de cores */
+:root {
+    --color-light-bg: linear-gradient(135deg, #f8fafc, #e1e5f2); /* Gradiente para o fundo claro */
+    --color-dark-bg: #0a0f2d; /* Cor de fundo escura */
+    --color-light-text: #070F2B; /* Texto escuro para fundo claro */
+    --color-dark-text: #d1e3ff; /* Texto claro para fundo escuro */
+    --color-light-button: #070F2B; /* Botão escuro para fundo claro */
+    --color-dark-button: #4c76ff; /* Botão claro para fundo escuro */
+    --color-form-light: #ffffff; /* Cor de fundo do formulário no modo claro */
+    --color-form-dark: #111b45; /* Cor de fundo do formulário no modo escuro */
+    --color-light-hover: #4c76ff; /* Cor de hover para links no modo claro */
+}
+
+/* Estilos principais */
+body {
+    font-family: "Montserrat", sans-serif;
+    background: var(--color-light-bg);
+    color: var(--color-light-text);
+}
+
+#container {
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}
+
+#login-form {
+    background-color: var(--color-form-light);
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 5px 5px 8px rgba(0, 0, 0, 0.336);
+    width: 100%;
+    max-width: 400px;
+    animation: dark-to-light 0.3s ease-in-out;
+}
+
+#form-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 20px;
+}
+
+#form-header h1 {
+    font-size: 32px;
+    position: relative;
+}
+
+#form-header h1::before {
+    content: '';
+    position: absolute;
+    bottom: -5px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 50%;
+    height: 2px;
+    background-color: var(--color-light-text);
+}
+
+#mode-icon {
+    cursor: pointer;
+    font-size: 24px;
+}
+
+#social-media {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+#social-media a {
+    display: inline-block;
+    margin: 0 10px;
+}
+
+#social-media img {
+    width: 35px;
+}
+
+#social-media img:hover {
+    transform: scale(1.2);
+}
+
+#inputs {
+    display: flex;
+    flex-direction: column;
+}
+
+.input-box {
+    margin-bottom: 15px;
+}
+
+.input-box label {
+    font-size: 14px;
+    color: var(--color-light-text);
+    display: block;
+    margin-bottom: 5px;
+}
+
+.input-field {
+    display: flex;
+    align-items: center;
+    border-bottom: 1px solid var(--color-light-text);
+    padding-bottom: 5px;
+}
+
+.input-field i {
+    font-size: 18px;
+    color: var(--color-light-text);
+}
+
+.input-field input {
+    flex: 1;
+    border: none;
+    background-color: transparent;
+    font-size: 16px;
+    padding: 5px;
+}
+
+#forgot-password {
+    text-align: right;
+    margin-top: 5px;
+}
+
+#forgot-password a {
+    font-size: 12px;
+    color: var(--color-light-text);
+    text-decoration: none;
+}
+
+#forgot-password a:hover {
+    color: var(--color-light-hover); /* Cor de hover para links no modo claro */
+}
+
+#login-button {
+    margin-top: 20px;
+    padding: 10px;
+    width: 100%;
+    background-color: var(--color-light-button);
+    color: var(--color-form-light);
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+#login-button:hover {
+    transform: scale(1.05);
+}
+
+/* Estilos para o tema escuro */
+.dark {
+    background-color: var(--color-dark-bg);
+    color: var(--color-dark-text);
+}
+
+.dark #login-form {
+    background-color: var(--color-form-dark);
+}
+
+.dark #form-header h1::before {
+    background-color: var(--color-dark-text);
+}
+
+.dark .input-box label,
+.dark .input-field i,
+.dark .input-field input {
+    color: var(--color-dark-text);
+}
+
+.dark .input-field {
+    border-bottom: 1px solid var(--color-dark-text);
+}
+
+.dark #forgot-password a {
+    color: var(--color-dark-text);
+}
+
+.dark #forgot-password a:hover {
+    color: var(--color-dark-button);
+}
+
+.dark #login-button {
+    background-color: var(--color-dark-button);
+    color: var(--color-dark-text);
+}
+
+.dark #login-button:hover {
+    transform: scale(1.05);
+}
+
+@keyframes dark-to-light {
+    0% {
+        background-color: var(--color-form-dark);
+    }
+
+    100% {
+        background-color: var(--color-form-light);
+    }
+}
+
+@keyframes light-to-dark {
+    0% {
+        background-color: var(--color-form-light);
+    }
+
+    100% {
+        background-color: var(--color-form-dark);
+    }
+}
+
+/* Responsividade */
+@media (max-width: 1200px) {
+    #login-form {
+        max-width: 350px;
+    }
+
+    #form-header h1 {
+        font-size: 28px;
+    }
+
+    .input-field i {
+        font-size: 16px;
+    }
+
+    .input-field input {
+        font-size: 14px;
+    }
+
+    #login-button {
+        font-size: 14px;
+    }
+}
+
+@media (max-width: 768px) {
+    #login-form {
+        max-width: 300px;
+        padding: 20px;
+    }
+
+    #form-header h1 {
+        font-size: 24px;
+    }
+
+    .input-field i {
+        font-size: 14px;
+    }
+
+    .input-field input {
+        font-size: 12px;
+    }
+
+    #login-button {
+        font-size: 12px;
+    }
+}
+
+@media (max-width: 480px) {
+    #login-form {
+        max-width: 100%;
+        padding: 15px;
+    }
+
+    #form-header h1 {
+        font-size: 20px;
+    }
+
+    .input-field i {
+        font-size: 12px;
+    }
+
+    .input-field input {
+        font-size: 10px;
+    }
+
+    #login-button {
+        font-size: 10px;
+    }
+}
